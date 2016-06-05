@@ -8,6 +8,18 @@
 #
 
 TOP="/tmp"
+CHROMIUM="$TOP/chromium"
+WIDEVINE="$TOP/chromium-widevine"
+PEPPER="$TOP/chromium-pepperflash"
+
+#
+# Directory structuring
+#
+
+if [ ! -e "$CHROMIUM" ] && [ ! -e "$WIDEVINE" ] && [ ! -e "$PEPPER" ]; then
+	mkdir "$CHROMIUM" "$WIDEVINE" "$PEPPER"
+fi
+
 
 #
 # Cleanup
