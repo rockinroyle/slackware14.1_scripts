@@ -18,6 +18,7 @@ PEPPER="$TOP/chromium-pepperflash"
 
 if [ ! -e "$CHROMIUM" ] && [ ! -e "$WIDEVINE" ] && [ ! -e "$PEPPER" ]; then
 	mkdir "$CHROMIUM" "$WIDEVINE" "$PEPPER"
+	else echo "Directories already exist. Moving on!"
 fi
 
 
