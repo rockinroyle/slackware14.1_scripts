@@ -28,22 +28,22 @@ fi
 
 cd $TOP
 removepkg chromium-*.t?z
-cd $TOP/chromium
+cd $CHROMIUM
 rm -rf build
-cd $TOP/chromium-pepperflash
+cd $PEPPER
 rm -rf build
-cd $TOP/chromium-widevine
+cd $WIDEVINE
 rm -rf build
 
 #
 # Download
 #
 
-cd $TOP/chromium
+cd $CHROMIUM
 lftp -c "open http://www.slackware.com/~alien/slackbuilds/chromium/; mirror build"
-cd $TOP/chromium-pepperflash
+cd $PEPPER
 lftp -c "open http://www.slackware.com/~alien/slackbuilds/chromium-pepperflash-plugin/; mirror build"
-cd $TOP/chromium-widevine
+cd $WIDEVINE
 lftp -c "open http://www.slackware.com/~alien/slackbuilds/chromium-widevine-plugin/; mirror build"
 
 #
@@ -51,15 +51,15 @@ lftp -c "open http://www.slackware.com/~alien/slackbuilds/chromium-widevine-plug
 #
 
 # Chromium Browser
-cd $TOP/chromium/build
+cd $CHROMIUM/build
 sh ./chromium.SlackBuild
 
 # Pepperflash-plugin
-cd $TOP/chromium-pepperflash/build
+cd $PEPPER/build
 sh ./chromium-pepperflash-plugin.SlackBuild
 
 # Widevine-plugin
-cd $TOP/chromium-widevine/build
+cd $WIDEVINE/build
 sh ./chromium-widevine-plugin.SlackBuild
 
 #
