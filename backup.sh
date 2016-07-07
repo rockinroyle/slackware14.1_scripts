@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# To be run as root user. syntax should be: "backup.sh <path to backup files>"
+#
+
 if [ $# -lt 1 ]; then
     echo "No destination defined. Usage: $0 destination" >&2
     exit 1
