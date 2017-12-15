@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -v
 
 # Chromium download script for slackware_14.1_x86_64.
 # Should be run from root!
