@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Original script base from here: https://wiki.archlinux.org/index.php/Rsync#As_a_backup_utility
 #
 # Copyright (C) 2017-2018 @rockinroyle aka Ralph L Royle III
 #
@@ -19,21 +20,43 @@
 #
 # rsync backup script
 # To be run as root user. syntax should be: "backup.sh <path to backup files>"
+# Script will assume you have functions.sh in same directory. I keep it in "$HOME/bin"
+# but script needs to be edited to suit.
 #
 
+# Source function library
+
+. functions.sh
+
+# Setup message handling
+
+USAGE="`basename $0` [absolute pathname]"
+ERROR="Argument required!!"
+ERROR[1]="Too many arguments."
+ERROR[2]="Invalid path: $1"
+ERROR[3]="Directory not writable: $1"
+
+# Check if correct arguments are passsed to script
+
 if [ $# -lt 1 ]; then
-    echo "No destination defined. Usage: $0 destination" >&2
+    printERROR $ERROR[0]
+    printUSAGE $USAGE
     exit 1
 elif [ $# -gt 1 ]; then
-    echo "Too many arguments. Usage: $0 destination" >&2
+    printERROR $ERROR[1]
+    printUSAGE $USAGE
     exit 1
 elif [ ! -d "$1" ]; then
-   echo "Invalid path: $1" >&2
+    printERROR $ERROR[2]
+    printUSAGE $USAGE
    exit 1
 elif [ ! -w "$1" ]; then
-   echo "Directory not writable: $1" >&2
+    printERROR $ERROR[3]
+    printUSAGE $USAGE
    exit 1
 fi
+
+# Specify directories that can be used as backup destination to avoid redundancy. (Backing up the backup loc.)
 
 case "$1" in
   "/mnt") ;;
