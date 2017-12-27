@@ -17,11 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
+######################
+# Rsync Backup Script#
+######################
+
 #
-# rsync backup script
 # To be run as root user. syntax should be: "backup.sh <path to backup files>"
-# Script will assume you have functions.sh in same directory. I keep it in "$HOME/bin"
-# but script needs to be edited to suit.
+# Script will assume you have functions.sh in same directory. I keep it in "$HOME/bin".
+# Edit script to suit your needs.
 #
 
 # Source function library
