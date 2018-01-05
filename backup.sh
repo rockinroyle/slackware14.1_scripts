@@ -29,7 +29,7 @@
 
 # Source function library
 
-. functions.sh
+. ./functions.sh
 
 # Setup message handling
 
@@ -42,19 +42,19 @@ ERROR[3]="Directory not writable: $1"
 # Check if correct arguments are passsed to script
 
 if [ $# -lt 1 ]; then
-    printERROR $ERROR[0]
+    printERROR ${ERROR[0]}
     printUSAGE $USAGE
     exit 1
 elif [ $# -gt 1 ]; then
-    printERROR $ERROR[1]
+    printERROR ${ERROR[1]}
     printUSAGE $USAGE
     exit 1
 elif [ ! -d "$1" ]; then
-    printERROR $ERROR[2]
+    printERROR ${ERROR[2]}
     printUSAGE $USAGE
    exit 1
 elif [ ! -w "$1" ]; then
-    printERROR $ERROR[3]
+    printERROR ${ERROR[3]}
     printUSAGE $USAGE
    exit 1
 fi
